@@ -1,0 +1,239 @@
+<% layout('layouts/boilerplateMain')%>
+
+  <div class="marque-tag">
+    <span style='color:  #000000;'><span style='font-family: Anton, Verdana, Cambria;font-size: 20px;background-color:
+   #9f080f;padding-top: 20px;padding-bottom: 20px;'><span style='font-style: normal; font-variant-ligatures: normal; 
+   font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; 
+   text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;
+    text-decoration-style: initial; text-decoration-color: initial; float: none; display: inline !important;'>
+          <marquee behavior='scroll' direction='left' scrollamount="10" <h1 style="color:White;">
+            <% if(!latestVacancy) {%>
+              Welcome To WREU Official Website. 100 Glorious Years Of Struggle, Sacrifices & Service To Railway
+              Employees
+              </h1>
+              <% }else{ %>
+                <button class="deltabtn-secondary"><a href="<%=latestVacancy._id%>/docs/docs-details">Click
+                    Here!!</a></button>
+                <%=latestVacancy.title%>
+                  </h1>
+                  <button class="deltabtn-secondary"><a href="<%=latestVacancy._id%>/docs/docs-details">Click
+                      Here!!</a></button>
+                  <% } %>
+          </marquee>
+
+        </span>
+      </span>
+    </span>
+  </div>
+
+  <div class="container container-fluid sliderContainer" data-aos="fade-up" data-aos-delay="100">
+    <!-- this is to make it responsive to your screen width -->
+    <div class="row">
+      <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <% sliderUrl.forEach((img,i)=> { %>
+            <div class="carousel-item <%= i===0 ? 'active':'' %> ">
+              <img src="<%=img.url%>" class="d-block w-100" alt="...">
+            </div>
+            <% }) %>
+        </div>
+        <% if(sliderUrl.length> 1) { %>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+          <% } %>
+      </div>
+    </div>
+  </div>
+
+  <div class="container info-section">
+    <section id="pricing" class="pricing">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4 col-md-6 mt-4 mt-md-0" data-aos="fade-up" data-aos-delay="100">
+            <div class="box featured">
+              <h3>Important Links</h3>
+              <section class="iota nu-btn-github imp-links">
+                <div><a href="https://www.airfindia.org/" class="btn btn-tetrary">AIRF INDIA</a></div>
+                <div><a href="https://www.finmin.nic.in/" class="btn btn-tetrary">Finance Ministry</a></div>
+                <div><a href="https://railwayrule.com/" class="btn btn-tetrary">Railway Rule</a></div>
+                <div><a href="http://www.jacksonsociety.com/" class="btn btn-tetrary">JCCS</a></div>
+                <div><a href="https://incometaxindia.gov.in/Pages/default.aspx/" class="btn btn-tetrary">Income Tax</a>
+                </div>
+                <div><a href="https://wr.indianrailways.gov.in/" class="btn btn-tetrary">Western Railway</a></div>
+                <div><a href="https://indianrailways.gov.in/railwayboard/" class="btn btn-tetrary">Railway Board</a>
+                </div>
+                <div><a href="https://enquiry.indianrail.gov.in/mntes/" class="btn btn-tetrary">Train Enquiry</a></div>
+                <div><a href="https://persmin.gov.in/" class="btn btn-tetrary">DOPD</a></div>
+              </section>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 mt-4 mt-md-0" data-aos="fade-up" data-aos-delay="100">
+            <div class="box featured">
+              <h3>Latest Posts</h3>
+              <section class="iota nu-btn-github imp-links">
+                <% for(i=0; i<docsLink.length; i++) { %>
+                  <% if(i> 8) { %>
+                    <% break %>
+                      <% } %>
+                        <div><a href="/<%=docsLink[i]._id%>/docs/docs-details" class="btn btn-tetrary">
+                            <%=docsLink[i].title.substring(0, 40)%>
+                          </a></div>
+                        <% }%>
+              </section>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 mt-4 mt-md-0" data-aos="fade-up" data-aos-delay="100">
+            <div class="box featured">
+              <h3>Recent Events</h3>
+              <section class="iota nu-btn-github imp-links">
+                <% for(i=0; i<imagesInfo.length; i++) { %>
+                  <% if(i> 8) { %>
+                    <% break %>
+                      <% } %>
+                        <div><a href="/<%=imagesInfo[i]._id%>/images/gallery-details" class="btn btn-tetrary">
+                            <%=imagesInfo[i].title.substring(0, 40)%>
+                          </a></div>
+                        <% } %>
+              </section>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+  </div>
+
+  <!-- ======= Portfolio Section ======= -->
+  <section id="portfolio" class="portfolio">
+    <div class="container">
+      <div class="section-title">
+        <h2 data-aos="fade-up">Pictures Gallery</h2>
+      </div>
+      <div class="row" data-aos="fade-up" data-aos-delay="100">
+        <div class="col-lg-12 d-flex justify-content-center">
+          <ul id="portfolio-flters">
+            <!-- <li data-filter=".filter-app">App</li>
+              <li data-filter=".filter-card">Card</li>
+              <li data-filter=".filter-web">Web</li>
+              <li data-filter="*" class="filter-active">All</li> -->
+            <button type="button" class="btn btn-outline-primary">
+              <a href="/images">View All</a>
+            </button>
+            <% if(currentUser) { %>
+              <button type="button" class="btn btn-outline-dark">
+                <a href="/newPhoto">Add Photos</a>
+              </button>
+              <% } %>
+          </ul>
+        </div>
+      </div>
+
+      <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
+        <% for(i=0; i<imagesInfo.length; i++) { %>
+          <% if(i> 14) { %>
+            <!-- condition to print only 15 images from images model of 100 or more data  -->
+            <% break %>
+              <% } %>
+                <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+                  <!-- important class filter-app to filter images -->
+                  <img src="<%= imagesInfo[i].images[0].url %>" class="img-fluid" alt="">
+                  <div class="portfolio-info">
+                    <h5>
+                      <%= imagesInfo[i].title.substring(0, 80) %>
+                    </h5>
+                    <p>
+                      <%= imagesInfo[i].description.substring(0, 30) %>
+                    </p>
+                    <a href="<%= imagesInfo[i].images[0].url %>" data-gallery="portfolioGallery"
+                      class="portfolio-lightbox preview-link" title=" <%= imagesInfo[i].title %> "> <small><i
+                          class="bi bi-zoom-in"></i></small></a>
+                    <a href="/<%=imagesInfo[i]._id%>/images/gallery-details" class="details-link"
+                      title="More Details"><i class="bx bx-link"></i></a>
+
+                  </div>
+                </div>
+                <% } %>
+
+      </div>
+
+    </div>
+  </section><!-- End Portfolio Section -->
+  <!-- ======= Testimonials Section ======= -->
+  <section id="testimonials" class="testimonials">
+    <div class="container position-relative" data-aos="fade-up">
+
+      <div class="testimonials-slider swiper-container" data-aos="fade-up" data-aos-delay="100">
+        <div class="swiper-wrapper">
+          <% for(user of userinfo) { %>
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <img src=" <%=user.image%> " class="testimonial-img" alt="" height="105">
+                <h3>
+                  <%=user.name %>
+                </h3>
+                <h4>
+                  <%=user.designation%>
+                </h4>
+              </div>
+            </div><!-- End testimonial item -->
+            <% } %>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+    <div id="container" class="container see-all-officials">
+      <button class="learn-more">
+        <span class="circle" aria-hidden="true">
+          <span class="icon arrow"></span>
+        </span>
+        <span class="button-text">See All</span>
+      </button>
+    </div>
+
+  </section><!-- End Testimonials Section -->
+
+  <!-- ======= Contact Section ======= -->
+  <section id="contact" class="contact">
+    <div class="container">
+
+      <div class="section-title">
+        <h2 data-aos="fade-up">Contact</h2>
+        <p data-aos="fade-up">Here bhavnagar address is to be added!!</p>
+      </div>
+
+      <div class="row justify-content-center">
+
+        <div class="col-xl-3 col-lg-4 mt-4" data-aos="fade-up">
+          <div class="info-box">
+            <i class="bx bx-map"></i>
+            <h3>Our Address</h3>
+            <p>QTR.NO.2T/A, RAILWAY COLONY, VERAVAL - 362265</p>
+          </div>
+        </div>
+
+        <div class="col-xl-3 col-lg-4 mt-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="info-box">
+            <i class="bx bx-envelope"></i>
+            <h3>Email Us</h3>
+            <p>rahul@gmail.com<br>rahul2@gmail.com</p>
+          </div>
+        </div>
+        <div class="col-xl-3 col-lg-4 mt-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="info-box">
+            <i class="bx bx-phone-call"></i>
+            <h3>Call Us</h3>
+            <p>+91 9610613293<br>+91 888888888</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section><!-- End Contact Section -->

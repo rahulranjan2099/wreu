@@ -1,0 +1,38 @@
+<% layout('layouts/boilerplate')%>
+<body>
+    <div class="row">
+        <h1 class="text-center">Edit Images Data</h1>
+        <div class="col-6 offset-3">
+            <form action="/<%=imagesData._id%>/images/edit?_method=PUT" method="POST" novalidate class="validate-form" 
+                enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label class="form-label" for="title">Add title</label>
+                    <input class="form-control" type="text" id="title" name="title" value=" <%=imagesData.title%>" required>
+                    <div class="valid-feedback">
+                        Noice!</div> 
+                </div>
+                <div class="mb-3">
+                    <label for="image" class="form-label">Add Images:</label>
+                    <input class="form-control" type="file" id="image" name="image" multiple>
+                  </div>
+                <div class="mb-3">
+                    <label class="form-label" for="description">Description</label>
+                    <textarea class="form-control" name="description" type="text" required id="description" ><%=imagesData.description%>  </textarea>
+                </div>
+                <div class="mb-3">
+                    <% imagesData.images.forEach(function(img,i){ %>
+                    <img src="<%=img.url%>" alt="" class="img-thumbnail"  width="200" height="160">
+                    <div class="form-check-inline">
+                        <input type="checkbox" id="image-<%=i%>" name="deleteImages[]" value="<%=img.key%>">
+                    </div>
+                    <label for="image-<%=i%>">Delete?</label>    
+                    <% }) %>  
+                </div>
+                <button class="btn btn-info mb-3">Save</button>
+            </form>
+            <button class="btn btn-danger">
+                <a href="/<%=imagesData._id%>/images/gallery-details">BACK</a>
+            </button>
+        </div>
+    </div>
+    </body>

@@ -1,0 +1,82 @@
+<% layout('layouts/boilerplate')%>
+ 
+ <!-- ======= Blog Single Section ======= -->
+ <section id="blog" class="blog">
+    <div class="container main-imp-news" data-aos="fade-up">
+      <div class="row">
+        <div class="col-lg-12 entries">
+          <article class="entry entry-single">
+      
+                <div class="container row gy-4">
+                  <div class="col-lg-8">
+                        <h2 class="entry-title">
+                          <%=docsInfo.title%>
+                          </h2>
+              
+                          <div class="entry-meta">
+                            <ul>
+                              <li class="d-flex align-items-center"><i class="bi bi-person"></i><%=docsInfo.author.name%></li>
+                              <li class="d-flex align-items-center"><i class="bi bi-clock"></i><%=docsInfo.date%></li>
+                            </ul>
+                          </div>
+                          <div class="portfolio-info gallery-details">
+                            <% if(docsInfo.docs.length > 0) { %>
+                              <% docsInfo.docs.forEach((docs,i) => { %>  
+                            <div class="container">
+                              <form action="/<%=docs._id%>/docs/getPdf" method="GET" class="d-inline"> 
+                                <button class="btn btn-primary mt-1 mb-2">View PDF <%=i+1%> </button>
+                              </form>
+                              <a href="<%=docs.url%>" class="btn btn-secondary mt-1 mb-2 mx-4"> Download</a>
+                              <!-- <div class="container"><object data="http" width="400" height="800"></object></div> --> 
+                          </div>
+                            <% }) %>
+                            <% } %> 
+                          </div>  
+                  </div> 
+  
+                  <div class="col-lg-4">
+                    <% if(currentUser && docsInfo.author.equals(currentUser._id)) { %> 
+                    <div class="col-lg-12">
+                      <div class="portfolio-info">
+                        <h3>Admin Panel</h3>
+                        <a href=" /<%=docsInfo._id%>/docs/edit" class="btn btn-secondary"> Edit </a>
+                        <form class="d-inline" action="/<%=docsInfo._id%>/docs/edit?_method=DELETE" method="POST">
+                            <button class="btn btn-danger">DELETE</button>
+                        </form>
+                       </div>
+                    </div>
+                    <% } %> 
+                  </div>
+                </div>
+              
+  
+            <div class="entry-content">
+              <p>
+                <%=docsInfo.description%> 
+              </p>
+
+            </div>
+            <% if(docsInfo.images.length > 0) { %>
+              <% docsInfo.images.forEach((img,i) => { %>  
+            <div class="entry-img mt-5">
+              <img src=" <%=img.url%>" alt="" class="img-fluid">
+            </div>
+            <a href="<%=img.url%>" class=" btn btn-secondary"> Download</a>
+            <% }) %>
+            <% } %>
+            <div class="container mt-4">
+            <button class="btn btn-info">
+              <a href="/imp-docs?category=<%=token%>">BACK</a>
+          </button>
+        </div> 
+          </article><!-- End blog entry -->
+      </div>
+  </div>
+  <div class="blog-author d-flex align-items-center mt-4">
+    <img src="<%=profileUrl[0].url%>" class="rounded-circle float-left" alt="">
+    <div>
+      <h4> <%=docsInfo.author.name%> </h4>
+    </div>
+  </div><!-- End blog author bio -->
+    </div>
+  </section><!-- End Blog Single Section -->

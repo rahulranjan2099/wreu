@@ -1,0 +1,69 @@
+<% layout('layouts/boilerplate')%>
+
+    <body>
+        <section class="admin-panel">
+            <div class="row">
+                <h1 class="text-center">Add Photos</h1>
+                <div class="col-6 offset-3">
+                    <form action="/<%=wreu._id%>/docs?category=<%=token%>" method="POST" novalidate
+                        class="validate-form" enctype="multipart/form-data">
+                        <div class="mb-3">
+                            <label class="form-label" for="title">Add Title</label>
+                            <input class="form-control" type="text" id="title" name="title" required>
+                            <div class="valid-feedback">
+                                Nice!</div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="description">Description</label>
+                            <textarea class="form-control" name="description" type="text" id="description"> </textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="image" class="form-label">Add Image Document:</label>
+                            <input class="form-control" type="file" id="image" name="image" multiple>
+                        </div>
+                        <div class="mb-3">
+                            <label for="docs" class="form-label">Add File Document:</label>
+                            <input class="form-control" type="file" id="docs" name="docs" multiple>
+                        </div>
+                        <button class="btn btn-success mb-3">Submit</button>
+                    </form>
+
+                    <% switch (token) { case 'PNM' : %>
+                        <button class="btn btn-danger"><a href="/docs-forum">BACK</a></button>
+                        <% break; case 'INFORMAL' : %>
+                            <button class="btn btn-danger"><a href="/docs-forum">BACK</a></button>
+                            <% break; case 'NON-PAYMENT' : %>
+                                <button class="btn btn-danger"><a href="/docs-forum">BACK</a></button>
+                                <% break; case 'SBF' : %>
+                                    <button class="btn btn-danger"><a href="/docs-forum">BACK</a></button>
+                                    <% break; case 'JCCS-NEWS' : %>
+                                        <button class="btn btn-danger"><a href="/docs-forum">BACK</a></button>
+                                        <% break; case 'RAILWAY-BOARD' : %>
+                                            <button class="btn btn-danger"><a href="/docs-impCircular">BACK</a></button>
+                                            <% break; case 'HEADQUARTER' : %>
+                                                <button class="btn btn-danger"><a
+                                                        href="/docs-impCircular">BACK</a></button>
+                                                <% break; case 'DIVISION' : %>
+                                                    <button class="btn btn-danger"><a
+                                                            href="/docs-impCircular">BACK</a></button>
+                                                    <% break; case 'FORM-FOR-STAFF' : %>
+                                                        <button class="btn btn-danger"><a
+                                                                href="/docs-form-for-staff">BACK</a></button>
+                                                        <% break; case 'VACANCY' : %>
+                                                            <button class="btn btn-danger"><a
+                                                                    href="/docs-vacancy">BACK</a></button>
+                                                            <% break; case 'GS-AIRF' : %>
+                                                                <button class="btn btn-danger"><a
+                                                                        href="/docs-unionLetter">BACK</a></button>
+                                                                <% break; case 'GS-WREU' : %>
+                                                                    <button class="btn btn-danger"><a
+                                                                            href="/docs-unionLetter">BACK</a></button>
+                                                                    <% break; case 'DS-BVP' : %>
+                                                                        <button class="btn btn-danger"><a
+                                                                                href="/docs-unionLetter">BACK</a></button>
+                                                                        <% break; default: break; } %>
+                </div>
+
+            </div>
+        </section>
+    </body>

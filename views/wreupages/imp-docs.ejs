@@ -1,0 +1,127 @@
+<% layout('layouts/boilerplate')%>
+
+<section id="services" class="services section imp-docs">
+  
+  <div class="container mt-2">    
+      <div class="section-title" data-aos="fade-up">
+        <% switch (token) {
+          case 'PNM': %>
+        <h1> PNM </h1>
+        <% break;
+          case 'INFORMAL': %>
+        <h1>INFORMALS</h1>
+        <% break;
+          case 'NON-PAYMENT': %>
+        <h1>NON PAYMENT</h1>
+        <% break;
+        case 'SBF': %>
+        <h1> SBF </h1>
+        <% break;
+        case 'JCCS-NEWS': %>
+        <h1> JCCS NEWS </h1>
+        <% break;
+        case 'RAILWAY-BOARD': %>
+        <h1> RAILWAY-BOARD </h1>
+        <% break;
+        case 'HEADQUARTER': %>
+        <h1> HEADQUARTER </h1>
+        <% break;
+        case 'DIVISION': %>
+        <h1> DIVISION </h1>
+        <% break;
+        case 'FORM-FOR-STAFF': %>
+        <h1> FORMS FOR STAFF </h1>
+        <% break;
+        case 'VACANCY': %>
+        <h1> VACANCY </h1>
+        <% break;
+        case 'GS-AIRF': %>
+        <h1> GS AIRF </h1>
+        <% break;
+        case 'GS-WREU': %>
+        <h1> GS WREU </h1>
+        <% break;
+        case 'DS-BVP': %>
+        <h1> DS BVP </h1>
+        <% break;
+          default: 
+          break; } %>
+        
+    </div>
+
+      <% if(currentUser) { %> 
+        <button type="button" class="btn btn-outline-dark">
+          <a href="/addDocs?category=<%=token%>">Add Document</a>
+        </button>
+        <% } %>
+
+        <% switch (token) {
+          case 'PNM': %>
+          <div class="container mt-4"> <button class="btn btn-info"> <a href="/docs-forum">BACK</a> </button> </div> 
+        <% break;
+          case 'INFORMAL': %>
+          <div class="container mt-4"> <button class="btn btn-info"> <a href="/docs-forum">BACK</a> </button> </div> 
+        <% break;
+          case 'NON-PAYMENT': %>
+          <div class="container mt-4"> <button class="btn btn-info"> <a href="/docs-forum">BACK</a> </button> </div> 
+        <% break;
+        case 'SBF': %>
+        <div class="container mt-4"> <button class="btn btn-info"> <a href="/docs-forum">BACK</a> </button> </div> 
+        <% break;
+        case 'JCCS-NEWS': %>
+        <div class="container mt-4"> <button class="btn btn-info"> <a href="/docs-forum">BACK</a> </button> </div> 
+        <% break;
+        case 'RAILWAY-BOARD': %>
+        <div class="container mt-4"> <button class="btn btn-info"> <a href="/docs-impCircular">BACK</a> </button> </div> 
+        <% break;
+        case 'HEADQUARTER': %>
+        <div class="container mt-4"> <button class="btn btn-info"> <a href="/docs-impCircular">BACK</a> </button> </div> 
+        <% break;
+        case 'DIVISION': %>
+        <div class="container mt-4"> <button class="btn btn-info"> <a href="/docs-impCircular">BACK</a> </button> </div> 
+        <% break;
+        case 'FORM-FOR-STAFF': %>
+        <div class="container mt-4"> <button class="btn btn-info"> <a href="/">BACK</a> </button> </div> 
+        <% break;
+        case 'VACANCY': %>
+        <div class="container mt-4"> <button class="btn btn-info"> <a href="/">BACK</a> </button> </div> 
+        <% break;
+        case 'GS-AIRF': %>
+        <div class="container mt-4"> <button class="btn btn-info"> <a href="/docs-unionLetter">BACK</a> </button> </div> 
+        <% break;
+        case 'GS-WREU': %>
+        <div class="container mt-4"> <button class="btn btn-info"> <a href="/docs-unionLetter">BACK</a> </button> </div> 
+        <% break;
+        case 'DS-BVP': %>
+        <div class="container mt-4"> <button class="btn btn-info"> <a href="/docs-unionLetter">BACK</a> </button> </div> 
+        <% break;
+          default: 
+          break; } %>
+      
+      <div class="row">
+        <% for(let i=0; i<docsData.length; i++) { %> 
+        <div class="col-lg-4 col-md-6" data-aos="fade-up">
+          <div class="icon-box">
+
+             <% if(docsData[i].docs.length > 0 && docsData[i].images.length > 0 ) { %> 
+          <a href="/<%= docsData[i]._id %>/docs/docs-details"> <div class="icon"><i class="bi bi-file-earmark-richtext"></i></div> </a> 
+            
+          <% } else if(docsData[i].docs.length > 0 && docsData[i].images.length <= 0 ) { %>
+          <a href="/<%= docsData[i]._id %>/docs/docs-details">  <div class="icon"><i class="bi bi-file-earmark-text"></i></div> </a> 
+              
+          <% } else if(docsData[i].docs.length <= 0 && docsData[i].images.length > 0 ) { %>
+          <a href="/<%= docsData[i]._id %>/docs/docs-details">  <div class="icon"><i class="bi bi-images"></i></div> </a> 
+                
+          <% } else { %>
+                <div class="icon"><i class="bi bi-book-half"></i></div>
+                <% } %>  
+            
+            <h4 class="title"><a href= "/<%= docsData[i]._id %>/docs/docs-details" > <%= docsData[i].title %>  </a></h4>
+            <p class="description"> <%=docsData[i].description.substring(0, 80)%> </p>
+            <ul class="list-unstyled"><li class="text-muted"> <%=docsData[i].date %>  </li></ul>
+          </div> 
+        </div>
+        <% } %> 
+      </div>
+    </div>    
+  </section><!-- End Services Section -->

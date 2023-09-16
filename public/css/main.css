@@ -1,0 +1,224 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');;
+.nu-btn-github {
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.42;
+  padding: 0;
+  margin: 0;
+}
+
+.nu-btn-github button, a {
+  outline: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.nu-btn-github a {
+  text-decoration: none;
+  padding-bottom: 2px;
+  border-bottom: 1px solid #52C11F;
+  color: #52C11F;
+  transition: border-color 0.2s;
+}
+.nu-btn-github a:hover {
+  border-color: transparent;
+}
+
+.nu-btn-github section {
+  /*padding: 10% 1%;*/
+  color: #6D6F7F;
+}
+
+.nu-btn-github .container {
+  padding-left: 2%;
+  padding-right: 2%;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+
+.nu-btn-github h1, h2, h3, h4, h5, h6 {
+  font-family: font-family: 'Poppins', sans-serif;
+  /*margin: 0.3em 0 0.1em;*/
+  font-weight: 100;
+}
+
+
+h2 {
+  font-size: 3em;
+  padding-bottom: 0.8em;
+}
+
+
+.nu .btn {
+  display: inline-block;
+  margin: 6px;
+  font-size: inherit;
+  line-height: 1.42;
+  padding: 0.8em 2.5em;
+  margin-bottom: 0em;
+  width: 50em;
+  font-weight: normal;
+  border-width: 1px;
+  border-style: solid;
+  background: transparent;
+  border-radius: 0;
+  cursor: pointer;
+  font-family: "Booster Next FY", "Avenir Next", Avenir, sans-serif;
+  user-select: none;
+  vertical-align: bottom;
+  transition: background-color 0.2s, color 0.2s, padding 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-radius 0.2s;
+}
+.nu .btn.btn-disabled {
+  cursor: not-allowed;
+  opacity: 0.8;
+}
+.nu .btn.btn-disabled:active {
+  opacity: 0.6;
+}
+
+.nu .btn-secondary {
+  color: #0B44EF;
+  border-color: #0B44EF;
+}
+.nu .btn-secondary:hover {
+  background-color: #0B44EF;
+  color: #E6EAEF;
+  padding-left: 3.5em;
+  padding-right: 3.5em;
+  border-radius: 0.4em;
+}
+.nu .btn-secondary:active {
+  background-color: #0a40e0;
+  border-color: #0a40e0;
+}
+
+
+.nu-btn-github .btn-sm {
+  font-size: 0.85em !important;
+}
+
+.nu-btn-github .btn-md {
+  font-size: 1.2em !important;
+}
+
+.nu-btn-github .btn-lg {
+  font-size: 1.6em !important;
+}
+
+
+
+.iota .btn {
+  display: inline-block;
+  margin: 6px;
+  font-size: 1.2em;
+  line-height: 1.42;
+  padding: 0.6em 1.6em;
+  font-weight: normal;
+  border-width: 2px;
+  border-style: solid;
+  background: transparent;
+  border-radius: 0.5em;
+  cursor: pointer;
+  font-family: "Booster Next FY", "Avenir Next", Avenir, sans-serif;
+  user-select: none;
+  vertical-align: bottom;
+  position: relative;
+  border-style: solid;
+  overflow: hidden;
+  transition: background-color 0.3s, color 0.3s;
+  font-weight: 550;
+}
+.iota .btn.btn-disabled {
+  cursor: not-allowed;
+  opacity: 0.8;
+}
+.iota .btn.btn-disabled:active {
+  opacity: 0.6;
+}
+.iota .btn:hover:after {
+  transform: scaleX(1);
+  opacity: 1;
+  transition: transform 0.3s, opacity 0.3s;
+}
+.iota .btn:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  border-radius: 1.46em;
+  transform: scaleX(0.7);
+  opacity: 0;
+  transition: transform 0.8s, opacity 0.3s;
+}
+
+.iota .btn-tetrary {
+  color: #643a40; /*changekrne*/
+  border-color: #fffafa;
+}
+.iota .btn-tetrary:hover {
+  color: #E6EAEF;
+  background-color:#9f3636;
+}
+.iota .btn-tetrary:active {
+  background-color: #9019d4;
+}
+.iota .btn-tetrary:active:after {
+  background-color: #9019d4;
+}
+.iota .btn-tetrary:after {
+  background-color: #991BE2;
+}
+
+.deltabtn-secondary {
+  display: inline-block;
+  /*margin: 6px;*/
+  margin-top: 1em;
+  font-size: inherit;
+  line-height: 0.5;
+  padding: 0.6em 1.6em;
+  font-weight: 400;
+  font-size: 16px;
+  border-width: 1px;
+  border-style: solid;
+  background: transparent;
+  border-radius: 0.25em;
+  cursor: pointer;
+  font-family: "Booster Next FY", "Avenir Next", Avenir, sans-serif;
+  user-select: none;
+  vertical-align: bottom;
+  background-color: transparent;
+  border-width: 1px;
+  border-style: solid;
+  box-shadow: 0 1.31em 0 0 rgba(255, 255, 255, 0.1) inset;
+  transition: box-shadow 0.3s cubic-bezier(0.215, 0.61, 0.355, 1), border-color 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.deltabtn-secondary:active {
+  box-shadow: 0 1.31em 0.2em 0 rgba(0, 0, 0, 0.08) inset;
+  transition: box-shadow 0.1s;
+}
+
+.deltabtn-secondary {
+  background-color: #E6EAEF;
+  background-image: linear-gradient(-45deg, #E6EAEF, #e4edf1);
+  color: #252730;
+  border-top-color: white;
+  border-left-color: #f9fafb;
+  border-right-color: #f9fafb;
+  border-bottom-color: #a8b6c7;
+}
+.deltabtn-secondary:hover {
+  background-image: linear-gradient(-45deg, #eceff3, #ebf2f5);
+}
+.deltabtn-secondary:active {
+  color: #a8b6c7;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);
+  background-color: #e0e5eb;
+  background-image: linear-gradient(-45deg, #e0e5eb, #dde9ee);
+  border-top-color: #a8b6c7;
+  border-left-color: #d3dae3;
+  border-right-color: #d3dae3;
+  border-bottom-color: #d3dae3;
+}

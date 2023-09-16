@@ -1,0 +1,57 @@
+<% layout('layouts/boilerplate')%>
+<body>
+  <section class="admin-panel">
+    <div class="container">
+    <div class="row">
+        <h1 class="text-center">Edit Documents Data</h1>
+        <div class="col-6 offset-3">
+            <form action="/<%=docsData._id%>/docs/edit?_method=PUT" method="POST" novalidate class="validate-form" 
+                enctype="multipart/form-data">
+                <div class="mb-3"> 
+                    <label class="form-label" for="title">Add title</label>
+                    <input class="form-control" type="text" id="title" name="title" value=" <%=docsData.title%>" required>
+                    <div class="valid-feedback">
+                        Nice!</div>
+                </div>
+                <div class="mb-3">
+                    <label for="image" class="form-label">Add Images:</label>
+                    <input class="form-control" type="file" id="image" name="image" multiple>
+                  </div>
+                  <div class="mb-3">
+                    <label for="docs" class="form-label">Add File Document:</label>
+                    <input class="form-control" type="file" id="docs" name="docs" multiple>
+                  </div>
+                <div class="mb-3">
+                    <label class="form-label" for="description">Description</label>
+                    <textarea class="form-control" name="description" type="text" required id="description" ><%=docsData.description%>  </textarea>
+                </div>
+                <div class="mb-3">
+                    <% docsData.docs.forEach((docs,i) => { %>
+                    <div class="container">
+                            <a href="/<%=docs._id%>/docs/getPdf"> View PDF <%=i+1%> </a>
+                      </div>
+                    <div class="form-check-inline">
+                        <input type="checkbox" id="docs-<%=i%>" name="delete[]" value="<%=docs.key%>">
+                    </div>
+                    <label for="docs-<%=i%>">Delete?</label>    
+                    <% }) %>  
+                </div>                
+                <div class="mb-3">
+                    <% docsData.images.forEach(function(img,i){ %>
+                    <img src="<%=img.url%>" alt="" class="img-thumbnail" width="200" height="160">
+                    <div class="form-check-inline">
+                        <input type="checkbox" id="image-<%=i%>" name="delete[]" value="<%=img.key%>">
+                    </div>
+                    <label for="image-<%=i%>">Delete?</label>    
+                    <% }) %>  
+                </div>
+                <button class="btn btn-info mb-3">Save</button>
+            </form>
+            <button class="btn btn-danger">
+              <a href="/<%=docsData._id%>/docs/docs-details">BACK</a>
+             </button>
+        </div>
+    </div>
+</div>
+</section>
+    </body>
